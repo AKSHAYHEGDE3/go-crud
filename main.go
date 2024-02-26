@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/AKSHAYHEGDE3/go-crud/controllers"
 	"github.com/AKSHAYHEGDE3/go-crud/initializers"
 	"github.com/gin-gonic/gin"
 )
@@ -13,10 +14,6 @@ func init() {
 func main() {
 	r := gin.Default()
 
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "One Piece is Real!",
-		})
-	})
+	r.POST("/registerUser", controllers.RegisterUser)
 	r.Run()
 }
