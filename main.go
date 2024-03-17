@@ -1,9 +1,8 @@
 package main
 
 import (
-	"github.com/AKSHAYHEGDE3/go-crud/controllers"
 	"github.com/AKSHAYHEGDE3/go-crud/initializers"
-	"github.com/AKSHAYHEGDE3/go-crud/middleware"
+	"github.com/AKSHAYHEGDE3/go-crud/routes"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,8 +14,7 @@ func init() {
 func main() {
 	r := gin.Default()
 
-	r.POST("/registerUser", controllers.RegisterUser)
-	r.POST("/login", controllers.LoginUser)
-	r.GET("/validateUser", middleware.ValidateUser, controllers.Validate)
+	routes.AuthRoutes(r)
+
 	r.Run()
 }
